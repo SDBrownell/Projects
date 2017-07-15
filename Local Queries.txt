@@ -1,0 +1,25 @@
+#1
+select skillName from skillsF inner join skillTypesF on skillsF.skillID=skillTypesF.skillID group by skillTypeID;
+#2
+select positionFunction from positionFunctionsF inner join positionsF on positionFunctionsF.positionFunctionID= positionsF.positionID where positionIndustry='Internet';
+#3
+select positionName from positionsF where positionIndustry= 'Computer Software';
+select positionFunction from positionFunctionsF inner join positionsF on positionFunctionsF.positionFunctionID=positionsF.positionID where positionName= 'Data Analytics Internship' or 'Business Intelligence/Data Science Intern';
+select positionSkillID from positionSkillsF inner join positionFunctionsF on positionSkillsF.positionID=positionFunctionsF.positionFunctionID where positionFunction='Information Technology';
+
+#4       
+select positionSkillID from positionSkillsF inner join positionsF on positionSkillsF.positionSkillID=positionsF.positionID where positionIndustry='Consumer Goods';
+select positionFunction from positionFunctionsF inner join positionSkillsF on positionFunctionsF.positionFunctionID=positionSkillsF.positionSkillID where positionSkillID=2;
+
+#5
+select positionCompany from positionsF where positionLocation='New York City, NY';
+select skillName from skillsF inner join positionsF on skillsF.skillID=positionsF.positionID where positionCompany='MediaMath';
+select skillTypeID from skillTypesF inner join skillsF on skillTypesF.skillTypeID=skillsF.skillID where skillName='Matlab';
+
+#6
+select positionIndustry, count(*) positionCompany from positionsF group by positionIndustry;
+
+
+
+#7
+select positionIndustry, skillName from positionsF inner join skillsF on positionsF.positionID=skillsF.skillID group by positionID;
